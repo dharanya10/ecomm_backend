@@ -10,6 +10,7 @@ export class CartService {
         let data = req.body;
         let disDetails: any = await this.DisDao.getDiscountbyID(data.productId)
         data.subtotal = Number(data.price) * Number(data.quantity);
+        data.subtotal=Math.round(data.subtotal)
         if (disDetails === null) {
             data.discount_percentage = 0
             data.discount_quantity = 0
@@ -20,14 +21,14 @@ export class CartService {
         }
         if (data.discount_percentage > 0) {
             if (data.quantity % data.discount_quantity == 0) {
-                data.discount_cost = data.subtotal - (data.subtotal * data.discount_percentage / 100)
+                data.discount_cost=Math.round(data.subtotal-(data.subtotal*data.discount_percentage/100))
             }
             else if (data.quantity / data.discount_quantity != 0) {
-                let temp = (data.quantity - (data.quantity % data.discount_quantity))
+                let temp:number = (data.quantity - (data.quantity % data.discount_quantity))
                 temp = temp * data.price;
                 temp = temp - (temp * data.discount_percentage / 100);
                 data.discount_cost = (data.quantity % data.discount_quantity) * data.price;
-                data.discount_cost = data.discount_cost + temp;
+                data.discount_cost=Math.round(data.discount_cost+temp);
             }
         }
         else {

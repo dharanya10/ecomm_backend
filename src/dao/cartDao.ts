@@ -14,11 +14,11 @@ export class CartDao {
 
     public getCart(callback) {
         this.Cart.find().then((result) => {
-            let length = result.length
+            let length: number = result.length
             let data: any = {}
             data.items = result
-            let totalCost = 0;
-            let totalAmount = 0;
+            let totalCost:number = 0;
+            let totalAmount:number = 0;
             for (let i = 0; i < length; i++) {
                 totalCost = totalCost + data.items[i].subtotal;
                 totalAmount = totalAmount + data.items[i].discount_cost;
