@@ -1,8 +1,12 @@
 import {Request,Response} from 'express';
 import { ProductService } from '../service/productService';
 
-let Service=new ProductService()
+let Service
 export class ProductController{
+    constructor(){
+        Service=new ProductService()
+    }
+
    
     public postProduct(req : Request,res: Response ){
         Service.postProduct(req, (response,error

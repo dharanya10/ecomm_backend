@@ -18,7 +18,25 @@ export const CartSchema = new Schema({
     price: {
         type: Number,
         required: true
+    },
+    discount_percentage:{
+        type:Number,
+        require: true
+    },
+    discount_quantity:{
+        type:Number,
+        require: true
+    },
+    subtotal:{
+        type:Number,
+        require: true
+    },
+    discount_cost:{
+        type:Number,
+        require: true
     }
+
+
 
 })
 const CartModel= mongoose.model('cart', CartSchema);

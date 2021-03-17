@@ -37,4 +37,12 @@ export class DiscountDao{
         })
         
     }
+    public getDiscountbyID(uid){
+        return this.Dis.findOne({productId:uid}).then((result)=>{
+             return result
+          }).catch((error)=>{
+              console.log(error)
+      })
+    }
+
 }
