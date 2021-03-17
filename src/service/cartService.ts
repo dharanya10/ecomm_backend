@@ -17,4 +17,13 @@ export class CartService{
         let data=req.params.id;
         this.Dao.EmptyCart(data,callback);
     }
+
+    public IncrQuantity(req,callback){
+        
+        let data=req.body;
+        data.uid=req.params.id
+        this.Dao.IncrQuantity(data,callback);
+    
+}
+
 }

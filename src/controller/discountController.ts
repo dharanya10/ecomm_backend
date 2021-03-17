@@ -1,11 +1,11 @@
 import {Request,Response} from 'express';
-import { CartService } from '../service/cartService';
+import { DiscountService } from '../service/discountService';
 
-let Service=new CartService()
-export class CartController{
+let Service=new DiscountService()
+export class DiscountController{
 
-    public addToCart(req : Request,res: Response ){
-        Service.addToCart(req, (response,error
+    public addDiscount(req : Request,res: Response ){
+        Service.addDiscount(req, (response,error
             )=>{
                 if(error){
                 res.status(401);
@@ -16,8 +16,8 @@ export class CartController{
             })
     }
 
-    public getCart(req : Request,res: Response ){
-        Service.getCart(req, (response,error
+    public getDiscount(req : Request,res: Response ){
+        Service.getDiscount(req, (response,error
             )=>{
                 if(error){
                 res.status(401);
@@ -28,8 +28,8 @@ export class CartController{
             })
     }
 
-    public EmptyCart(req : Request,res: Response ){
-        Service.EmptyCart(req, (response,error
+    public DeleteDiscount(req : Request,res: Response ){
+        Service.DeleteDiscount(req, (response,error
             )=>{
                 if(error){
                 res.status(401);
@@ -40,14 +40,15 @@ export class CartController{
             })
     }
 
-    public IncrQuantity(req : Request,res: Response ){
-        Service.IncrQuantity(req, (response,error
+    public UpdateDiscount(req : Request,res: Response ){
+        Service.UpdateDiscount(req, (response,error
             )=>{
                 if(error){
                 res.status(401);
                 res.send(error.message)
                 }
+                res.status(200);
+                res.send(response);
             })
-        }
-    
+    }
 }

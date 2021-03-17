@@ -1,11 +1,11 @@
 import ItemModel from "../model/productModel";
-import CartModel from "../model/cartModel"
+import DiscountModel from "../model/discountModel"
 
-export class CartDao{
-    private Cart = CartModel
+export class DiscountDao{
+    private Dis = DiscountModel
 
-    public addToCart(data,callback){
-        let temp=new CartModel(data);
+    public addDiscount(data,callback){
+        let temp=new DiscountModel(data);
         temp.save().then((result)=>{
             callback(result,null);
         }).catch((error)=>{
@@ -13,29 +13,28 @@ export class CartDao{
         })
     }
 
-    public getCart(callback){
-        this.Cart.find().then((result)=>{
+    public getDiscount(callback){
+        this.Dis.find().then((result)=>{
             callback(result,null);
         }).catch((error)=>{
             callback(null,error);
         })
     }
 
-    public EmptyCart(data,callback){
-        this.Cart.findByIdAndDelete(data).then((result)=>{
+    public DeleteDiscount(data,callback){
+        this.Dis.findByIdAndDelete(data).then((result)=>{
             callback(result);
         }).catch((error)=>{
             callback(error);
         })
     }
 
-    public IncrQuantity(data,callback){
-        this.Cart.updateOne({_id:data.uid},data).then((result)=>{
+    public UpdateDiscount(data,callback){
+        this.Dis.updateOne({_id:data.uid},data).then((result)=>{
             callback(result);
         }).catch((error)=>{
             callback(error);
         })
         
     }
-
 }

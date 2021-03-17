@@ -28,7 +28,7 @@ export class ProductDao{
     }
 
     public updateProduct(data,callback){
-        this.Item.findOneAndUpdate({_id:data.uid},data,{ new: true }).then((result)=>{
+        this.Item.updateOne({_id:data.uid},data).then((result)=>{
             callback(result);
         }).catch((error)=>{
             callback(error);
