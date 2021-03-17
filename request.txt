@@ -1,0 +1,7 @@
+//post product
+{
+    "name":"test",
+    "description":"football",
+    "price":"50",
+    "media_url":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fdesign.google%2Flibrary%2Fevolving-google-identity%2F&psig=AOvVaw0NqXYnZ044WQjjzfuCMtnN&ust=1615988242221000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNi57L_3tO8CFQAAAAAdAAAAABAJ"
+}

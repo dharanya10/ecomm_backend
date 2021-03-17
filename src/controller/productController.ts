@@ -9,7 +9,7 @@ export class ProductController{
         )=>{
             if(error){
             res.status(401);
-            res.send("Error Occurred - post product")
+            res.send(error.message)
             }
             else{
             res.status(200);
@@ -24,7 +24,7 @@ export class ProductController{
             )=>{
                 if(error){
                 res.status(401);
-                res.send("Error Occurred - get product")
+                res.send(error.message)
                 }
                 res.status(200);
                 res.send(response);
@@ -32,22 +32,30 @@ export class ProductController{
     }
 
     public updateProduct(req : Request,res: Response ){
-        Service.updateProduct(req, (response)=>{
-            res.status(200);
-            res.send(response);
-        })
+        Service.updateProduct(req, (response,error
+            )=>{
+                if(error){
+                res.status(401);
+                res.send(error.message)
+                }
+                res.status(200);
+                res.send(response);
+            })
 
     }
 
     public deleteProduct(req : Request,res: Response ){
-        Service.deleteProduct(req, (response)=>{
-            res.status(200);
-            res.send(response);
-        })
-
+        Service.deleteProduct(req, (response,error
+            )=>{
+                if(error){
+                res.status(401);
+                res.send(error.message)
+                }
+                res.status(200);
+                res.send(response);
+            })
     }
 
     
 
     }
-

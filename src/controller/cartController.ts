@@ -9,7 +9,7 @@ export class CartController{
             )=>{
                 if(error){
                 res.status(401);
-                res.send("Error Occurred - add to cart", error)
+                res.send(error.message)
                 }
                 res.status(200);
                 res.send(response);
@@ -21,7 +21,7 @@ export class CartController{
             )=>{
                 if(error){
                 res.status(401);
-                res.send("Error Occurred - get cart details")
+                res.send(error.message)
                 }
                 res.status(200);
                 res.send(response);
@@ -33,7 +33,7 @@ export class CartController{
             )=>{
                 if(error){
                 res.status(401);
-                res.send("Error Occurred - empty cart")
+                res.send(error.message)
                 }
                 res.status(200);
                 res.send(response);
