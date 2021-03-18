@@ -16,7 +16,7 @@ export class Route{
 
         app.route('/cart').post(this.cartController.addToCart);
         app.route('/cart').get(this.cartController.getCart);
-        app.route('/cart/:id').delete(this.cartController.EmptyCart);
+        app.route('/cart').delete(this.cartController.EmptyCart);
         app.route('/cart/:id').put(this.cartController.IncrQuantity);
 
         app.route('/discount').post(this.discountController.addDiscount);

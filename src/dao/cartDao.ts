@@ -35,7 +35,7 @@ export class CartDao {
     }
 
     public EmptyCart(result, callback) {
-        this.Cart.findByIdAndDelete(result).then((result) => {
+        this.Cart.deleteMany().then((result)=>{
             callback(result);
         }).catch((error) => {
             callback(error);
