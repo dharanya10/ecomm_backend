@@ -5,7 +5,7 @@ import mongoose = require('mongoose');
 import { Route } from './src/router/router';
  
 const PORT=3000;
-class App {
+export default class App {
 
     public app : express.Application = express();
     public router: Route = new Route();

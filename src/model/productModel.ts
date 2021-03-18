@@ -14,8 +14,7 @@ export const ItemSchema = new Schema({
         required: true
     },
     media_url:{
-        type:String,
-        required:true
+        type:String
     }
 })
 const ItemModel=mongoose.model('Item',ItemSchema,'Item');
